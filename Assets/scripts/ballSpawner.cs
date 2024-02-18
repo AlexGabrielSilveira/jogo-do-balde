@@ -10,13 +10,9 @@ public class ballSpawner : MonoBehaviour
 
     public List<GameObject> prefabs;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {   
+        if(GameManager.Instance.GameOver == true) return;
         cooldown -= Time.deltaTime;
         if(cooldown <= 0f) {
             cooldown = interval;
@@ -33,7 +29,8 @@ public class ballSpawner : MonoBehaviour
 
         Vector3 position = originPoint + new Vector3(xOffset,0,0);
 
-        Quaternion rotation = prefab.transform. rotation;
+        Quaternion rotation = prefab.transform.rotation;
         Instantiate(prefab, position, rotation);
+
     }
 }

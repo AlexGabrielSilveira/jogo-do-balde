@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
-    public float gameWidth = 20;
+    [HideInInspector]public bool GameOver = false;
+    public float gameWidth = 22;
+    [HideInInspector]public int score = 0;
 
     void Awake() {
         if(Instance != null && Instance != this) {
